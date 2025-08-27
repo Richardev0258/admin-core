@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  product-service:
+    build:
+      context: ./product-service
+    container_name: product-service
+    ports:
+      - "8081:8081"
+    environment:
+      - API_KEY=mi-api-key-secreta
+      - SPRING_PROFILES_ACTIVE=dev
+    volumes:
+      - product_data:/app/data
+    networks:
+      - microservices-net
+
+  inventory-service:
+    build:
+      context: ./inventory-service
+    container_name: inventory-service
+    ports:
+      - "8082:8082"
+    environment:
+      - API_KEY=mi-api-key-secreta
+      - PRODUCT_SERVICE_URL=http://product-service:8081
+      - SPRING_PROFILES_ACTIVE=dev
+    volumes:
+      - inventory_data:/app/data
+    depends_on:
+      - product-service
+    networks:
+      - microservices-net
+
+volumes:
+  product_data:
+  inventory_data:
+
+networks:
+  microservices-net:
+    driver: bridge
