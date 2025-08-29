@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   product-service:
     build:
@@ -8,8 +6,8 @@ services:
     ports:
       - "8081:8081"
     environment:
-      - API_KEY=mi-api-key-secreta
-      - SPRING_PROFILES_ACTIVE=dev
+      - SPRING_PROFILES_ACTIVE=docker
+      - API_KEY=PRODUCT_SERVICE_KEY
     volumes:
       - product_data:/app/data
     networks:
@@ -22,9 +20,9 @@ services:
     ports:
       - "8082:8082"
     environment:
-      - API_KEY=mi-api-key-secreta
-      - PRODUCT_SERVICE_URL=http://product-service:8081
-      - SPRING_PROFILES_ACTIVE=dev
+      - SPRING_PROFILES_ACTIVE=docker
+      - API_KEY=INVENTORY_SERVICE_KEY
+      - PRODUCT_SERVICE_URL=http://product-service:8081/api/products
     volumes:
       - inventory_data:/app/data
     depends_on:

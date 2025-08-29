@@ -20,11 +20,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseURL_ProductService}}/products",
+							"raw": "{{baseURL_ProductService}}/api/products",
 							"host": [
 								"{{baseURL_ProductService}}"
 							],
 							"path": [
+								"api",
 								"products"
 							]
 						}
@@ -42,11 +43,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseURL_ProductService}}/products/1",
+							"raw": "{{baseURL_ProductService}}/api/products/1",
 							"host": [
 								"{{baseURL_ProductService}}"
 							],
 							"path": [
+								"api",
 								"products",
 								"1"
 							]
@@ -74,11 +76,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL_ProductService}}/products",
+							"raw": "{{baseURL_ProductService}}/api/products",
 							"host": [
 								"{{baseURL_ProductService}}"
 							],
 							"path": [
+								"api",
 								"products"
 							]
 						}
@@ -100,11 +103,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseURL_ProductService}}/actuator/health",
+							"raw": "{{baseURL_ProductService}}/api/actuator/health",
 							"host": [
 								"{{baseURL_ProductService}}"
 							],
 							"path": [
+								"api",
 								"actuator",
 								"health"
 							]
@@ -138,7 +142,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"productId\": 12,\n    \"quantity\": 100\n}",
+							"raw": "{\n    \"productId\": 1,\n    \"quantity\": 100\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -146,11 +150,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL_InventoryService}}/inventory",
+							"raw": "{{baseURL_InventoryService}}/api/inventory",
 							"host": [
 								"{{baseURL_InventoryService}}"
 							],
 							"path": [
+								"api",
 								"inventory"
 							]
 						}
@@ -177,7 +182,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"productId\": 50,\n    \"quantity\": 150\n}",
+							"raw": "{\n    \"productId\": 1,\n    \"quantity\": 50\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -185,11 +190,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL_InventoryService}}/inventory",
+							"raw": "{{baseURL_InventoryService}}/api/inventory",
 							"host": [
 								"{{baseURL_InventoryService}}"
 							],
 							"path": [
+								"api",
 								"inventory"
 							]
 						}
@@ -211,7 +217,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"productId\": 1,\n    \"quantity\": 500\n}",
+							"raw": "{\n    \"productId\": 1,\n    \"quantity\": 2\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -219,11 +225,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL_InventoryService}}/inventory/purchases",
+							"raw": "{{baseURL_InventoryService}}/api/inventory/purchases",
 							"host": [
 								"{{baseURL_InventoryService}}"
 							],
 							"path": [
+								"api",
 								"inventory",
 								"purchases"
 							]
@@ -246,11 +253,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseURL_InventoryService}}/inventory/1",
+							"raw": "{{baseURL_InventoryService}}/api/inventory/1",
 							"host": [
 								"{{baseURL_InventoryService}}"
 							],
 							"path": [
+								"api",
 								"inventory",
 								"1"
 							]
@@ -265,13 +273,20 @@
 							"type": "noauth"
 						},
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "INVENTORY_SERVICE_KEY",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "{{baseURL_InventoryService}}/inventory",
+							"raw": "{{baseURL_InventoryService}}/api/inventory",
 							"host": [
 								"{{baseURL_InventoryService}}"
 							],
 							"path": [
+								"api",
 								"inventory"
 							]
 						}
@@ -293,11 +308,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseURL_InventoryService}}/actuator/health",
+							"raw": "{{baseURL_InventoryService}}/api/actuator/health",
 							"host": [
 								"{{baseURL_InventoryService}}"
 							],
 							"path": [
+								"api",
 								"actuator",
 								"health"
 							]
