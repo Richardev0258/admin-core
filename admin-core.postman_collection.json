@@ -1,0 +1,345 @@
+{
+	"info": {
+		"_postman_id": "9e6ea182-d151-456e-9f5c-ae0d345f60f3",
+		"name": "admin-core",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9840282"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "GET-products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "PRODUCT_SERVICE_KEY"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL_ProductService}}/products",
+							"host": [
+								"{{baseURL_ProductService}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET-Product",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "PRODUCT_SERVICE_KEY"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL_ProductService}}/products/1",
+							"host": [
+								"{{baseURL_ProductService}}"
+							],
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NEW-Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "PRODUCT_SERVICE_KEY"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Escritorio RGb, Ajustable\",\n    \"price\": 200.69,\n    \"description\": \"Escritorio RGb, Altura ajustable de 1 mt a 1.50 mts\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL_ProductService}}/products",
+							"host": [
+								"{{baseURL_ProductService}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET-Health_Check-health",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "PRODUCT_SERVICE_KEY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL_ProductService}}/actuator/health",
+							"host": [
+								"{{baseURL_ProductService}}"
+							],
+							"path": [
+								"actuator",
+								"health"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Inventory",
+			"item": [
+				{
+					"name": "POST-Create-inventory",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "INVENTORY_SERVICE_KEY",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productId\": 12,\n    \"quantity\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL_InventoryService}}/inventory",
+							"host": [
+								"{{baseURL_InventoryService}}"
+							],
+							"path": [
+								"inventory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST-Update_inventory",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "x-api-key",
+								"value": "INVENTORY_SERVICE_KEY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productId\": 50,\n    \"quantity\": 150\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL_InventoryService}}/inventory",
+							"host": [
+								"{{baseURL_InventoryService}}"
+							],
+							"path": [
+								"inventory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST-Purchases_inventory",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "INVENTORY_SERVICE_KEY"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productId\": 1,\n    \"quantity\": 500\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL_InventoryService}}/inventory/purchases",
+							"host": [
+								"{{baseURL_InventoryService}}"
+							],
+							"path": [
+								"inventory",
+								"purchases"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET-inventory_id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "INVENTORY_SERVICE_KEY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL_InventoryService}}/inventory/1",
+							"host": [
+								"{{baseURL_InventoryService}}"
+							],
+							"path": [
+								"inventory",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET-inventory_all",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL_InventoryService}}/inventory",
+							"host": [
+								"{{baseURL_InventoryService}}"
+							],
+							"path": [
+								"inventory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET-Health_Check-health",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "INVENTORY_SERVICE_KEY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL_InventoryService}}/actuator/health",
+							"host": [
+								"{{baseURL_InventoryService}}"
+							],
+							"path": [
+								"actuator",
+								"health"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL_ProductService",
+			"value": "http://localhost:8081",
+			"type": "default"
+		},
+		{
+			"key": "baseURL_InventoryService",
+			"value": "http://localhost:8082",
+			"type": "string"
+		}
+	]
+}
